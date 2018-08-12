@@ -1,0 +1,17 @@
+<button class="button btn-info" *ngIf='showFile' (click)='showFiles(false)'>Hide Content</button>
+
+<button class="button btn-info" *ngIf='!showFile' (click)='showFiles(true)'>Show Content</button>
+
+
+<div [hidden]="!showFile">
+  <div class="panel panel-primary">
+    <div class="spinner-wrapper" *ngIf="isLoader">
+      <app-preload-upload></app-preload-upload>
+    </div>
+    <!--<div *ngFor="let file of fileUploads ">-->
+      <div *ngIf="fileUploads" class="panel-body">
+        <details-upload [fileUpload]='fileUploads'></details-upload>
+      </div>
+    <!--</div>-->
+  </div>
+</div>
